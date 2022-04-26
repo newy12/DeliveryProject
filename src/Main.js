@@ -25,7 +25,7 @@ const Main = () => {
               <Offcanvas.Body>
                   <Offcanvas.Title><Link as={Link} to="/login" id="login"><b>로그인</b></Link></Offcanvas.Title>
                   <br />
-                  <Offcanvas.Title><Link as={Link} to="/signUp" id="signup"><b>회원가입</b></Link></Offcanvas.Title>
+                  <Offcanvas.Title><Link as={Link} to="/signup" id="signup"><b>회원가입</b></Link></Offcanvas.Title>
                   <br />
                   <Offcanvas.Title><Link as={Link} to="/notice" id="notice"><b>공지사항</b></Link></Offcanvas.Title>
                   <br />

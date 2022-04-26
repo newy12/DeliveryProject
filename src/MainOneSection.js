@@ -13,7 +13,7 @@ const MainOneSection = () => {
       <div className="wrapperMom">
         <div className="wrapper">
             <div className="item"></div>
-          <div className="item"></div>
+            <div className="item"></div>
             <div className="item"></div>
             <div className="item"></div>
             <div className="item"></div>
