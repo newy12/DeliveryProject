@@ -8,7 +8,6 @@ import JapanFood from "./JapanFood";
 import ChinaFood from "./ChinaFood";
 import $ from 'jquery';
 import Signup from "./Signup";
-import AgreementPaper from "./AgreementPaper";
 const App = () => {
   return (
           <Routes>
@@ -16,7 +15,7 @@ const App = () => {
               <Route path="/koreaFood" element={<KoreaFood/>}/>
               <Route path="/japanFood" element={<JapanFood/>}/>
               <Route path="/chinaFood" element={<ChinaFood/>}/>
-              <Route path="/signup" element={<AgreementPaper/>}/>
+              <Route path="/signup" element={<Signup/>}/>
           </Routes>
   );
 }
