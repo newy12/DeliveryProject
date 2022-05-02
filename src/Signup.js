@@ -1,7 +1,8 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {Button} from "react-bootstrap";
 import {FaCheck} from "react-icons/fa";
 import axios from "axios";
+import {Link, useNavigate} from 'react-router-dom';
 
 
 const Signup = () => {
@@ -10,6 +11,7 @@ const Signup = () => {
     const [passwordCheck,setPasswordCheck] = useState("");
     const [name,setName] = useState("");
     const [phone,setPhone] = useState("");
+    const navigate = useNavigate();
 
     //아이디 정규식 (한글, 특수문자, 띄어쓰기)
     const regId =  /[^?a-zA-Z0-9/]/
@@ -22,6 +24,7 @@ const Signup = () => {
     const regPhone = /^\d{3}-\d{3,4}-\d{4}$/;
 
     const signupApi = () => {
+
         const url = "http://localhost:8080/signup";
         axios.post(url,{
             userId : text,
@@ -34,6 +37,8 @@ const Signup = () => {
                 console.log(response.data.userId);
                 console.log(response.data.username);
                 console.log(response.data.phoneNumber);
+                alert("회원가입이 완료되었습니다.");
+                navigate("/");
 
             })
             .catch(function (error){
@@ -133,7 +138,7 @@ const Signup = () => {
             </div>
             <div className="d-grid gap-5">
                 <Button variant="primary" size="lg" onClick={signupApi}>
-                    가입 하기
+                    가입하기
                 </Button>
             </div>
         </>
