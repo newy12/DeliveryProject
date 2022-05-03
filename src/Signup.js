@@ -3,6 +3,7 @@ import {Button} from "react-bootstrap";
 import {FaCheck} from "react-icons/fa";
 import axios from "axios";
 import {Link, useNavigate} from 'react-router-dom';
+import $ from 'jquery';
 
 
 const Signup = () => {
@@ -23,9 +24,32 @@ const Signup = () => {
     //휴대전화 정규식
     const regPhone = /^\d{3}-\d{3,4}-\d{4}$/;
 
-    const signupApi = () => {
+    const signupApi = (e) => {
 
-        const url = "http://localhost:8080/signup";
+        if(text == '' || regId.exec(text)){
+            alert("아이디를 제대로 입력해주세요.");
+            $('#text').focus();
+            return false;
+        }else if(name == '' || !regName.exec(name)){
+            alert("이름을 제대로 입력해주세요.");
+            $('#name').focus();
+            return false;
+        }else if(password == '' || !regPw.exec(password)){
+            alert("비밀번호를 제대로 입력해주세요.");
+            $('#password').focus();
+            return false;
+
+        }else if(password != passwordCheck){
+            alert("비밀번호가 일치하지않습니다.");
+            $('#passwordCheck').focus();
+            return false;
+        }else if(phone == '' || !regPhone.exec(phone)){
+            alert("휴대폰번호를 제대로 입력해주세요.");
+            $('#phone').focus();
+            return false;
+        }
+
+        const url = "http://175.121.70.33:8080/signup";
         axios.post(url,{
             userId : text,
             username : name,
@@ -63,7 +87,7 @@ const Signup = () => {
                                 <tbody>
                                 <tr>
                                     <th><span>아이디 </span> {text != ""  && !regId.exec(text) ? <FaCheck color="#3EB489"/> : "" }</th>
-                                    <td><input type="text" placeholder="특수문자를 제외한 영문 혹은 숫자로만 입력해주세요" onChange={(e)=>{setText(e.target.value)}}/></td>
+                                    <td><input type="text" id="text" placeholder="특수문자를 제외한 영문 혹은 숫자로만 입력해주세요" onChange={(e)=>{setText(e.target.value)}}/></td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -71,7 +95,7 @@ const Signup = () => {
                                 </tr>
                                 <tr>
                                     <th><span>이름</span> {name != "" && regName.exec(name) ? <FaCheck color="#3EB489"/> : "" }</th>
-                                    <td><input type="text" placeholder=""
+                                    <td><input type="text" placeholder="" id="name"
                                                onChange={(e)=>{setName(e.target.value)}}
                                     /></td>
                                 </tr>
@@ -81,7 +105,7 @@ const Signup = () => {
                                 </tr>
                                 <tr>
                                     <th><span>비밀번호</span> {regPw.exec(password) ? <FaCheck color="#3EB489"/> : ""}</th>
-                                    <td><input type="password" placeholder="특수문자를 제외한 8 ~ 10자 영문, 숫자 조합으로 입력해주세요"
+                                    <td><input type="password" placeholder="특수문자를 제외한 8 ~ 10자 영문, 숫자 조합으로 입력해주세요" id="password"
                                                onChange={(e) =>{setPassword(e.target.value)}}
                                     /></td>
                                 </tr>
@@ -91,7 +115,7 @@ const Signup = () => {
                                 </tr>
                                 <tr>
                                     <th><span>비밀번호 확인</span></th>
-                                    <td><input type="password" placeholder="비밀번호를 확인하세요"
+                                    <td><input type="password" placeholder="비밀번호를 확인하세요" id="passwordCheck"
                                                onChange={(e)=>{setPasswordCheck(e.target.value)}}
                                     /></td>
                                 </tr>
@@ -103,7 +127,7 @@ const Signup = () => {
                                 </tr>
                                 <tr>
                                     <th><span>휴대폰 번호 {phone != "" && regPhone.exec(phone) ? <FaCheck color="#3EB489"/>: ""}</span></th>
-                                    <td><input type="text" placeholder="ooo-oooo-oooo"
+                                    <td><input type="text" placeholder="ooo-oooo-oooo" id="phone"
                                                onChange={(e)=>{setPhone(e.target.value)}}
                                     /></td>
                                 </tr>
