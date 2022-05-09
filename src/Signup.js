@@ -91,7 +91,7 @@ const Signup = () => {
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td><span style={{color:"green" ,fontSize:"15px"}}>{text != "" && !regId.exec(text)  ? "["+text+"]"+"는 사용가능합니다." : <span style={{fontSize:"15px", color:"red"}}>아이디 형식이 맞지않습니다.</span> }</span></td>
+                                    <td id="textAlert"><span style={{color:"green" ,fontSize:"15px"}}>{text != "" && !regId.exec(text)  ? "["+text+"]"+"는 사용가능합니다." : <span style={{fontSize:"15px", color:"red"}}>아이디 형식이 맞지않습니다.</span> }</span></td>
                                 </tr>
                                 <tr>
                                     <th><span>이름</span> {name != "" && regName.exec(name) ? <FaCheck color="#3EB489"/> : "" }</th>
@@ -101,7 +101,7 @@ const Signup = () => {
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>{name !="" && regName.exec(name) ? <h5 style={{fontSize:"15px" ,color:"green"}}> 사용가능한 비밀번호입니다.</h5> : <h5 style={{fontSize:"15px", color:"red"}}>이름 형식이 맞지않습니다</h5> }</td>
+                                    <td id="passwordAlert">{name !="" && regName.exec(name) ? <h5 style={{fontSize:"15px" ,color:"green"}}> 사용가능한 비밀번호입니다.</h5> : <h5 style={{fontSize:"15px", color:"red"}}>이름 형식이 맞지않습니다</h5> }</td>
                                 </tr>
                                 <tr>
                                     <th><span>비밀번호</span> {regPw.exec(password) ? <FaCheck color="#3EB489"/> : ""}</th>
@@ -111,7 +111,7 @@ const Signup = () => {
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>{password !="" && regPw.exec(password) ? <h5 style={{fontSize:"15px" ,color:"green"}}> 사용가능한 비밀번호입니다.</h5> : <h5 style={{fontSize:"15px", color:"red"}}>비밀번호 형식이 맞지않습니다</h5> }</td>
+                                    <td id="passwordCheckAlert">{password !="" && regPw.exec(password) ? <h5 style={{fontSize:"15px" ,color:"green"}}> 사용가능한 비밀번호입니다.</h5> : <h5 style={{fontSize:"15px", color:"red"}}>비밀번호 형식이 맞지않습니다</h5> }</td>
                                 </tr>
                                 <tr>
                                     <th><span>비밀번호 확인</span></th>

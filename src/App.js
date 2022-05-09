@@ -8,6 +8,8 @@ import JapanFood from "./JapanFood";
 import ChinaFood from "./ChinaFood";
 import $ from 'jquery';
 import Signup from "./Signup";
+import Login from "./Login";
+import Auth from "./Auth";
 const App = () => {
   return (
           <Routes>
@@ -16,6 +18,9 @@ const App = () => {
               <Route path="/japanFood" element={<JapanFood/>}/>
               <Route path="/chinaFood" element={<ChinaFood/>}/>
               <Route path="/signup" element={<Signup/>}/>
+              <Route path="/login" element={<Login/>}/>
+              <Route path="/oauth/kakao/callback" element={<Auth/>}/>
+              <Route path="/profile" element={<Login/>}/>
           </Routes>
   );
 }
